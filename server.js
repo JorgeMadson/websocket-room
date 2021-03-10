@@ -1,6 +1,7 @@
 const WebSocket = require('ws');
+const port = 8080;
 const server = new WebSocket.Server({
-  port: 8080
+  port: port
 });
 
 let sockets = [];
@@ -17,3 +18,5 @@ server.on('connection', function(socket) {
     sockets = sockets.filter(s => s !== socket);
   });
 });
+
+console.log(`Server rodando na porta ${port} (${new Date()})`);
